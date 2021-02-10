@@ -1,0 +1,41 @@
+// Find Floor of an element in a sorted array
+// input:
+// 1
+// 5 15
+// 5 10 20 40 50
+// output:
+// 10
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define tst               long t;cin>>t;while(t--)
+#define rep(i,a,n)         for(int i=a;i<n;i++)
+#define ll                long long int
+#define ppc               __builtin_popcount
+#define ppcll             __builtin_popcountll
+#define OJ \
+    freopen("input.txt", "r", stdin); \
+    freopen("output.txt", "w", stdout);
+#define quick ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+ 
+ 
+int main(){
+quick
+  OJ;
+tst{
+    ll n,res;cin>>n>>res;ll a[n];rep(i,0,n) cin>>a[i];
+    ll start=0,end=n-1,ans;
+   
+    while(start<=end){
+        
+         ll mid=start+(end-start)/2;
+        if(a[mid]==res){ ans=mid+1;}
+        else if(a[mid]<res) {ans=a[mid]; start=mid+1;}
+        else end=mid-1;
+    }
+
+cout<<ans<<endl;
+}
+return 0;   
+}
