@@ -1,0 +1,44 @@
+/*/////ONLY THEORETICAL/////
+
+First Occurence of 1 in infinite sorted binary array
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define tst               long t;cin>>t;while(t--)
+#define rep(i,a,n)         for(int i=a;i<n;i++)
+#define ll                long long int
+#define ppc               __builtin_popcount
+#define ppcll             __builtin_popcountll
+#define OJ \
+    freopen("input.txt", "r", stdin); \
+    freopen("output.txt", "w", stdout);
+#define quick ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+ 
+ 
+int main(){
+quick
+  OJ;
+tst{
+    ll n;cin>>n>>res;ll a[n];rep(i,0,n) cin>>a[i];
+    ll start=0,end=1,f=0,ans;
+    while(1>a[end]){   // we will iterate till we find a[end]>res,because res must be in the range of start to end
+        if(1<a[end])
+        start=end;
+        end*=2;
+    }
+   
+    while(start<=end){
+        
+         ll mid=start+(end-start)/2;
+        if(a[mid]==1){ ans=mid+1;end=mid-1;f=1;}
+        else if(a[mid]<1) start=mid+1;
+        else end=mid-1;
+    }
+if(f==0) cout<<-1<<endl;
+else cout<<ans;
+
+}
+return 0;   
+}
